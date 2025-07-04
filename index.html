@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>AotApp</title>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="form">
+            <img class="logo" src="imgs/logoAot.png" alt="">
+            <input type="text" placeholder="username" />
+            <select name="titan" id="titan">
+                <option selected hidden >Selecione seu Titan</option>
+                <option value="quadrupede">Quadrupede</option>
+                <option value="puro">Puro</option>
+                <option value="muro">Colossal Muro</option>
+                <option value="martelo">Martelo</option>
+                <option value="mandibula">Mandíbula</option>
+                <option value="fundador">Fundador</option>
+                <option value="femea">Femêa</option>
+                <option value="colossal">Colossal</option>
+                <option value="blindado">Blindado</option>
+                <option value="bestial">Bestial</option>
+                <option value="ataque">Ataque</option>
+            </select>
+
+            <button onclick="abrirModal()" class="btn">ok</button>
+
+        </div>
+
+    </div>
+    
+    <div class="janelaModal" id="janelaModal">
+    
+        <div class="modal">
+            <img src="imgs/close.png" alt="" class="fechar" id="fechar">
+            <h1>janela teste</h1>
+            <p>aaaaaaaaaaaaaaaaa</p>
+        </div>
+
+    </div>
+    <script src="script.js"></script>
+
+</body>
+
+</html>
