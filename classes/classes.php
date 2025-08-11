@@ -1,395 +1,313 @@
 <?php
-
-    abstract class Classe{
-        //Atributos
-        public $forca, $defesa, $esquiva, $velocidade, $inteligencia, $vida, $tipo, $classe, $img, $descricao;
-
-        //Métodos
-        public function ataqueComum(){echo('Ataque Comum (20) <br>');}
-        public function defender(){echo('Defender (50) <br>');}
-        public function esquivar(){echo('Esquivar (60) <br>');}
-        public function fugir(){echo('Fugir (-10) <br>');}
-        
-        public function __set($atributo,$valor){
-            $this->$atributo = $valor;
-        }
-
-        public function __get($atributo){
-            return $this -> $atributo;
-        }
-    }
-
-    //Classes filhas da Classe Classe
-    class Guerreiro extends Classe{
-        public $forca = 100; 
-        public $defesa = 75; 
-        public $esquiva = 75;
-        public $velocidade = 75;
-        public $inteligencia = 30;
-        public $vida = 85;
-        public $img = 'guerreiro';
-        public $descricao = 'Um combatente robusto, especializado em armaduras pesadas e armas de combate corpo a corpo.';
-
-        public function ataqueEspecial(){
-            echo 'Espada Flamejante (70) <br>';
-            echo 'Corte profundo (50)';
-        }
-    }
-    class Arqueiro extends Classe{
-        public $forca = 60; 
-        public $defesa = 70; 
-        public $esquiva = 90;
-        public $velocidade = 90;
-        public $inteligencia = 70;
-        public $vida = 70;
-        public $img = 'arqueiro';
-        public $descricao = 'Um mestre do arco e flecha, ágil e preciso, que ataca de longe com destreza.';
-
-        public function ataqueEspecial(){
-            echo 'Flecha de gelo (70) <br>';
-            echo 'Alvo perfurante (50)';
-        }
-    }
-    class Mago extends Classe{
-        public $forca = 20; 
-        public $defesa = 70; 
-        public $esquiva = 60;
-        public $velocidade = 70;
-        public $inteligencia = 100;
-        public $vida = 130;
-        public $img = 'mago';
-        public $descricao = 'Um conjurador de feitiços poderosos, capaz de manipular os elementos e invocar magia arcana.';
-        
-        public function ataqueEspecial(){
-            echo 'Fúria do Dragão (70)<br>';
-            echo 'Energia estelar (50)';
-        }
-    }
-    class Barbaro extends Classe{
-        public $forca = 130; 
-        public $defesa = 80; 
-        public $esquiva = 45;
-        public $velocidade = 45;
-        public $inteligencia = 50;
-        public $vida = 100;
-        public $img = 'barbaro';
-        public $descricao = 'Um guerreiro feroz, movido pela fúria, que utiliza força bruta e instintos primitivos em batalha.';
-
-
-        public function ataqueEspecial(){
-            echo 'Força Sobrenatural (70)<br>';
-            echo 'Golpe esmagador (50)';
-        }
-    }
-    class Monge extends Classe{
-        public $forca = 50; 
-        public $defesa = 70; 
-        public $esquiva = 70;
-        public $velocidade = 70;
-        public $inteligencia = 105;
-        public $vida = 80;
-        public $img = 'monge';
-        public $descricao = 'Um lutador ágil e espiritual, que combina artes marciais com habilidades místicas e meditação.';
-        
-        public function ataqueEspecial(){
-            echo 'Silêncio Profundo (50)<br>';
-            echo 'Energia solar (70)';
-        }
-    }
-    class Lutador extends Classe{
-        public $forca = 90; 
-        public $defesa = 65; 
-        public $esquiva = 80;
-        public $velocidade = 80;
-        public $inteligencia = 35;
-        public $vida = 100;
-        public $img = 'lutador';
-        public $descricao = 'Um especialista em combate corpo a corpo, que utiliza técnicas de luta e agilidade para derrotar inimigos.';
-
-        public function ataqueEspecial(){
-            echo 'Soco giratório (60)<br>';
-            echo 'Chute voador (60)';
-        }
-    }
-    class Ladrao extends Classe{
-        public $forca = 20; 
-        public $defesa = 50; 
-        public $esquiva = 100;
-        public $velocidade = 85;
-        public $inteligencia = 100;
-        public $vida = 95;
-        public $img = 'ladrao';
-        public $descricao = 'Um mestre da furtividade e do roubo, ágil e astuto, que se infiltra em lugares sem ser notado.';
-
-        public function ataqueEspecial(){
-            echo 'Contragolpe rápido (70)<br>';
-            echo 'Furtividade (50)';
-        }
-    }
-    class Ninja extends Classe{
-        public $forca = 40; 
-        public $defesa = 45; 
-        public $esquiva = 100;
-        public $velocidade = 100;
-        public $inteligencia = 90;
-        public $vida = 75;
-        public $img = 'ninja';
-        public $descricao = 'Um guerreiro furtivo e letal, treinado em técnicas de assassinato e habilidades de camuflagem.';
-
-        public function ataqueEspecial(){
-            echo 'Ataque rápido (50)<br>';
-            echo 'Lâmina ardente (70)';
-        }
-    }    
-    class Bardo extends Classe{
-        public $forca = 20; 
-        public $defesa = 30; 
-        public $esquiva = 80;
-        public $velocidade = 80;
-        public $inteligencia = 120;
-        public $vida = 120;
-        public $img = 'bardo';
-        public $descricao = 'Um contador de histórias e músico, que usa canções e encantamentos para inspirar aliados e confundir inimigos.';
-
-        public function ataqueEspecial(){
-            echo 'Som profundo (50)<br>';
-            echo 'Nota perfurante (70)';
-        }
-    }
-    class Pirata extends Classe{
-        public $forca = 80; 
-        public $defesa = 40; 
-        public $esquiva = 80;
-        public $velocidade = 70;
-        public $inteligencia = 70;
-        public $vida = 110;
-        public $img = 'pirata';
-        public $descricao = 'Um aventureiro audacioso dos mares, que busca tesouros e vive pela liberdade, sempre pronto para a batalha.';
-
-        public function ataqueEspecial(){
-            echo 'Lâmina cortante (50)<br>';
-            echo 'Maldição do esqueleto (70)';
-        }
-    }    
-    class Android extends Classe{
-        public $forca = 100; 
-        public $defesa = 80; 
-        public $esquiva = 50;
-        public $velocidade = 50;
-        public $inteligencia = 80;
-        public $vida = 90;
-        public $img = 'android';
-        public $descricao = 'Um ser artificial com habilidades avançadas, que combina tecnologia e combate em um corpo humanoide.';
-
-        public function ataqueEspecial(){
-            echo 'Laser de fogo (60)<br>';
-            echo 'Chuva de tiros (60)';
-        }
-    }    
-    class Ogro extends Classe{
-        public $forca = 120; 
-        public $defesa = 90; 
-        public $esquiva = 30;
-        public $velocidade = 30;
-        public $inteligencia = 30;
-        public $vida = 150;
-        public $img = 'ogro';
-        public $descricao = 'Uma criatura colossal e forte, conhecida por sua brutalidade e resistência em combate.';
-
-        public function ataqueEspecial(){
-            echo 'Ataque de fúria (70)<br>';
-            echo 'Desmembramento (50)';
-        }
-    }    
-    class Animal extends Classe{
-        public $forca = 80; 
-        public $defesa = 60; 
-        public $esquiva = 90;
-        public $velocidade = 90;
-        public $inteligencia = 30;
-        public $vida = 100;
-        public $img = 'animal';
-        public $descricao = 'Um companheiro leal ou um feroz predador, que pode ter habilidades especiais dependendo da espécie.';
-
-        public function ataqueEspecial(){
-            echo 'Mordida raivosa (70)<br>';
-            echo 'Barulho vibrante (50)';
-        }
-    }    
+abstract class Classe {
     
-    class Fantasma extends Classe{
-        public $forca = 30; 
-        public $defesa = 60; 
-        public $esquiva = 100;
-        public $velocidade = 100;
-        public $inteligencia = 30;
-        public $vida = 130;
-        public $img = 'fantasma';
-        public $descricao = 'Uma entidade etérea, que pode atravessar paredes e assombrar os vivos com sua presença sobrenatural.';
+    public $forca, $defesa, $esquiva, $velocidade, $inteligencia, $vida, $tipo, $classe, $img, $descricao, $altura;
 
-        public function ataqueEspecial(){
-            echo 'Vulto sombrio (70)<br>';
-            echo 'Garra da morte (50)';
-        }
-    }    
-    
-    class Dinossauro extends Classe{
-        public $forca = 130; 
-        public $defesa = 70; 
-        public $esquiva = 50;
-        public $velocidade = 70;
-        public $inteligencia = 30;
-        public $vida = 100;
-        public $img = 'dinossauro';
-        public $descricao = 'Uma criatura pré-histórica poderosa, que traz força bruta e habilidades únicas para o campo de batalha.';
+    public function ataqueComum(){ echo('Ataque Comum (20) <br>'); }
+    public function defender(){ echo('Defender (50) <br>'); }
+    public function esquivar(){ echo('Esquivar (60) <br>'); }
+    public function fugir(){ echo('Fugir (-10) <br>'); }
 
-        public function ataqueEspecial(){
-            echo 'Engolir (70)<br>';
-            echo 'Investida (50)';
-        }
-    }    
-
-    class Soldado extends Classe{
-        public $forca = 70; 
-        public $defesa = 60; 
-        public $esquiva = 90;
-        public $velocidade = 90;
-        public $inteligencia = 40;
-        public $vida = 100;
-        public $img = 'soldado';
-        public $descricao = 'Um combatente disciplinado e treinado, que segue ordens e luta em formação para proteger seu reino.';
-
-        public function ataqueEspecial(){
-            echo 'Bala venenosa (70)<br>';
-            echo 'Granada explosiva (50)';
-        }
-    }    
-    
-    class Vampiro extends Classe{
-        public $forca = 80; 
-        public $defesa = 50; 
-        public $esquiva = 90;
-        public $velocidade = 90;
-        public $inteligencia = 50;
-        public $vida = 90;
-        public $img = 'vampiro';
-        public $descricao = 'Uma majestosa criatura alada, capaz de cuspir fogo e com uma sabedoria ancestral, guardiã de tesouros.';
-
-        public function ataqueEspecial(){
-            echo 'Sangue suga (70)<br>';
-            echo 'Dentes afiados (50)';
-        }
-    }    
-    
-    class Anao extends Classe{
-        public $forca = 80; 
-        public $defesa = 70; 
-        public $esquiva = 40;
-        public $velocidade = 40;
-        public $inteligencia = 100;
-        public $vida = 120;
-        public $img = 'anao';
-        public $descricao = 'Um guerreiro robusto e resistente, conhecido por sua habilidade em forjar armas e sua bravura em combate.';
-
-        public function ataqueEspecial(){
-            echo 'Golpe baixo (70)<br>';
-            echo 'Rasteira (50)';
-        }
-    }   
-    
-    class Dragao extends Classe{
-        public $forca = 90; 
-        public $defesa = 60; 
-        public $esquiva = 40;
-        public $velocidade = 70;
-        public $inteligencia = 40;
-        public $vida = 150;
-        public $img = 'dragao';
-        public $descricao = 'Uma majestosa criatura alada, poderosa e sábia, capaz de cuspir fogo e guardiã de tesouros inestimáveis.';
-
-        public function ataqueEspecial(){
-            echo 'Lança chamas (50)<br>';
-            echo 'Fúria da noite (70)';
-        }
-    }   
-    
-    class Elfo extends Classe{
-        public $forca = 60; 
-        public $defesa = 70; 
-        public $esquiva = 65;
-        public $velocidade = 70;
-        public $inteligencia = 90;
-        public $vida = 95;
-        public $img = 'elfo';
-        public $descricao = 'Um ser ágil e elegante, com habilidades mágicas e uma conexão profunda com a natureza.';
-
-        public function ataqueEspecial(){
-            echo 'Flecha celestial (50)<br>';
-            echo 'Chama da natureza (70)';
-        }
-    }    
-       
-    class Frankstein extends Classe{
-        public $forca = 60; 
-        public $defesa = 70; 
-        public $esquiva = 65;
-        public $velocidade = 70;
-        public $inteligencia = 90;
-        public $vida = 95;
-        public $img = 'frankstein';
-        public $descricao = 'Uma criatura feita de partes de diferentes corpos, que busca aceitação e luta contra seu destino.';
-
-        public function ataqueEspecial(){
-            echo 'Cabeçada (50)<br>';
-            echo 'Braço de Pedra (70)';
-        }
-    }   
-    
-    class Saci extends Classe{
-        public $forca = 60; 
-        public $defesa = 70; 
-        public $esquiva = 65;
-        public $velocidade = 70;
-        public $inteligencia = 90;
-        public $vida = 95;
-        public $img = 'saci';
-        public $descricao = 'Um travesso espírito folclórico, que usa truques e astúcia para confundir e enganar seus adversários.';
-
-        public function ataqueEspecial(){
-            echo 'Furacão (70)<br>';
-            echo 'Vento da mata (50)';
-        }
-    }    
-    
-    class Zumbi extends Classe{
-        public $forca = 90; 
-        public $defesa = 90; 
-        public $esquiva = 30;
-        public $velocidade = 30;
-        public $inteligencia = 00;
-        public $vida = 240;
-        public $img = 'zumbi';
-        public $descricao = 'Um morto-vivo reanimado, que se move lentamente, mas é implacável em sua busca por carne fresca.';
-
-        public function ataqueEspecial(){
-            echo 'Come cérebro (50)<br>';
-            echo 'Gosma ácida (70)';
-        }
-    }    
-    
-    class Lobisomem extends Classe{
-        public $forca = 90; 
-        public $defesa = 50; 
-        public $esquiva = 80;
-        public $velocidade = 80;
-        public $inteligencia = 50;
-        public $vida = 100;
-        public $img = 'lobisomem';
-        public $descricao = 'Um humano amaldiçoado que se transforma em uma fera à noite, combinando força animal com inteligência humana.';
-
-        public function ataqueEspecial(){
-            echo 'Garra feroz (50)<br>';
-            echo 'Uivo da morte (70)';
-        }
+    public function __set($atributo, $valor){
+        $this->$atributo = $valor;
     }
+
+    public function __get($atributo){
+        return $this->$atributo;
+    }
+}
+
+// Classe para altura dos Titãs
+class AlturaTitan {
+    public static $valores = [
+        'Titã de Ataque' => 15,
+        'Titã Carroça' => 4,
+        'Titã Colossal' => 60,
+        'Titã Blindado' => 15,
+        'Titã Fêmea' => 14,
+        'Titã Bestial' => 17,
+        'Titã Mandíbula' => 5,
+        'Titã Martelo de Guerra' => 15,
+        'Titãs do Muro' => 50,
+        'Titã Fundador' => 13
+        'Titã Fundador do Eren' => 1300
+        'Titã Puro' => 120
+    ];
+}
+
+// Titã Carroça
+class TitanCarroca extends Classe {
+    public $forca = 70; 
+    public $defesa = 75; 
+    public $esquiva = 85;
+    public $velocidade = 90;
+    public $inteligencia = 70;
+    public $vida = 80;
+    public $tipo = 'Titã Carroça';
+    public $img = 'titan_carroca';
+    public $descricao = 'Extremamente rápido e com alta resistência, usado para transporte e suporte logístico.';
+    public $altura;
+
+    public function __construct(){
+        $this->altura = AlturaTitan::$valores['Titã Carroça'];
+    }
+
+    public function ataqueEspecial(){
+        echo 'Investida Rápida (70) <br>';
+        echo 'Suporte de Artilharia (60) <br>';
+    }
+}
+
+
+// Titã de Ataque
+class TitanAtaque extends Classe {
+    public $forca = 90; 
+    public $defesa = 70; 
+    public $esquiva = 80;
+    public $velocidade = 85;
+    public $inteligencia = 75;
+    public $vida = 80;
+    public $tipo = 'Titã de Ataque';
+    public $img = 'titan_ataque';
+    public $descricao = 'Possui alta mobilidade e poder ofensivo, ideal para combates diretos.';
+    public $altura;
+
+    public function __construct(){
+        $this->altura = AlturaTitan::$valores['Titã de Ataque'];
+    }
+
+    public function ataqueEspecial(){
+        echo 'Sequência de Socos Devastadores (70) <br>';
+        echo 'Investida Rasgadora (60) <br>';
+    }
+}
+
+// Titã Colossal
+class TitanColossal extends Classe {
+    public $forca = 100; 
+    public $defesa = 80; 
+    public $esquiva = 30;
+    public $velocidade = 20;
+    public $inteligencia = 60;
+    public $vida = 95;
+    public $tipo = 'Titã Colossal';
+    public $img = 'titan_colossal';
+    public $descricao = 'Gigantesco e capaz de liberar vapor escaldante e explosões devastadoras.';
+    public $altura;
+
+    public function __construct(){
+        $this->altura = AlturaTitan::$valores['Titã Colossal'];
+    }
+
+    public function ataqueEspecial(){
+        echo 'Explosão de Transformação (100) <br>';
+        echo 'Liberação de Vapor Escaldante (80) <br>';
+    }
+}
+
+// Titã Blindado
+class TitanBlindado extends Classe {
+    public $forca = 95; 
+    public $defesa = 100; 
+    public $esquiva = 50;
+    public $velocidade = 60;
+    public $inteligencia = 65;
+    public $vida = 90;
+    public $tipo = 'Titã Blindado';
+    public $img = 'titan_blindado';
+    public $descricao = 'Possui pele endurecida como armadura, quase impenetrável.';
+    public $altura;
+
+    public function __construct(){
+        $this->altura = AlturaTitan::$valores['Titã Blindado'];
+    }
+
+    public function ataqueEspecial(){
+        echo 'Investida Blindada (85) <br>';
+        echo 'Defesa Total (90) <br>';
+    }
+}
+
+// Titã Fêmea
+class TitanFemea extends Classe {
+    public $forca = 85; 
+    public $defesa = 70; 
+    public $esquiva = 85;
+    public $velocidade = 85;
+    public $inteligencia = 80;
+    public $vida = 80;
+    public $tipo = 'Titã Fêmea';
+    public $img = 'titan_femea';
+    public $descricao = 'Ágil, versátil e capaz de endurecer partes do corpo.';
+    public $altura;
+
+    public function __construct(){
+        $this->altura = AlturaTitan::$valores['Titã Fêmea'];
+    }
+
+    public function ataqueEspecial(){
+        echo 'Chute Giratório (70) <br>';
+        echo 'Endurecimento Seletivo (65) <br>';
+    }
+}
+
+// Titã Bestial
+class TitanBestial extends Classe {
+    public $forca = 90; 
+    public $defesa = 75; 
+    public $esquiva = 60;
+    public $velocidade = 65;
+    public $inteligencia = 85;
+    public $vida = 85;
+    public $tipo = 'Titã Bestial';
+    public $img = 'titan_bestial';
+    public $descricao = 'Conhecido por sua força física e lançamentos de precisão com pedras.';
+    public $altura;
+
+    public function __construct(){
+        $this->altura = AlturaTitan::$valores['Titã Bestial'];
+    }
+
+    public function ataqueEspecial(){
+        echo 'Arremesso de Pedra Mortal (80) <br>';
+        echo 'Rugido de Comando (70) <br>';
+    }
+}
+
+// Titã Mandíbula
+class TitanMandibula extends Classe {
+    public $forca = 80; 
+    public $defesa = 60; 
+    public $esquiva = 95;
+    public $velocidade = 95;
+    public $inteligencia = 70;
+    public $vida = 75;
+    public $tipo = 'Titã Mandíbula';
+    public $img = 'titan_mandibula';
+    public $descricao = 'Extremamente rápido e com mandíbulas capazes de destruir quase tudo.';
+    public $altura;
+
+    public function __construct(){
+        $this->altura = AlturaTitan::$valores['Titã Mandíbula'];
+    }
+
+    public function ataqueEspecial(){
+        echo 'Mordida Destruidora (85) <br>';
+        echo 'Corte Acelerado (75) <br>';
+    }
+}
+
+// Titã Martelo de Guerra
+class TitanMartelo extends Classe {
+    public $forca = 95; 
+    public $defesa = 85; 
+    public $esquiva = 70;
+    public $velocidade = 70;
+    public $inteligencia = 90;
+    public $vida = 85;
+    public $tipo = 'Titã Martelo de Guerra';
+    public $img = 'titan_martelo';
+    public $descricao = 'Capaz de criar armas e estruturas endurecidas com seu poder.';
+    public $altura;
+
+    public function __construct(){
+        $this->altura = AlturaTitan::$valores['Titã Martelo de Guerra'];
+    }
+
+    public function ataqueEspecial(){
+        echo 'Martelo Endurecido (90) <br>';
+        echo 'Lança Cristalina (80) <br>';
+    }
+}
+
+// Titãs do Muro
+class TitansDoMuro extends Classe {
+    public $forca = 85; 
+    public $defesa = 80; 
+    public $esquiva = 20;
+    public $velocidade = 15;
+    public $inteligencia = 10;
+    public $vida = 90;
+    public $tipo = 'Titãs do Muro';
+    public $img = 'titans_do_muro';
+    public $descricao = 'Colossais inativos que formam as paredes de Paradis.';
+    public $altura;
+
+    public function __construct(){
+        $this->altura = AlturaTitan::$valores['Titãs do Muro'];
+    }
+
+    public function ataqueEspecial(){
+        echo 'Pressão Massiva (80) <br>';
+    }
+}
+
+// Titã Fundador (normal)
+class TitanFundador extends Classe {
+    public $forca = 95; 
+    public $defesa = 90; 
+    public $esquiva = 75;
+    public $velocidade = 75;
+    public $inteligencia = 100;
+    public $vida = 95;
+    public $img = 'titan_fundador';
+    public $descricao = 'Capaz de controlar memórias e comandar Eldianos, mas sem o poder absoluto do Eren.';
+    public $altura;
+
+    public function __construct(){
+        $this->altura = AlturaTitan::$valores['Titã Fundador'];
+    }
+
+    public function ataqueEspecial(){
+        echo 'Controle Mental (90) <br>';
+        echo 'Alteração de Memórias (85)';
+    }
+}
+
+// Titã Fundador do Eren (mais forte de todos)
+class TitanFundadorEren extends Classe {
+    public $forca = 200; 
+    public $defesa = 200; 
+    public $esquiva = 85;
+    public $velocidade = 85;
+    public $inteligencia = 500;
+    public $vida = 100;
+    public $img = 'titan_fundador_eren';
+    public $descricao = 'Forma final de Eren, com poder absoluto sobre Eldianos e todos os Titãs, capaz de iniciar o Rumbling.';
+    public $altura;
+
+    public function __construct(){
+        $this->altura = AlturaTitan::$valores['Titã Fundador do Eren'];
+    }
+
+    public function ataqueEspecial(){
+        echo 'Rumbling Total (700) <br>';
+        echo 'Controle Absoluto (900) <br>';
+        echo 'Aniquilação Mundial (1000)';
+    }
+}
+
+// Titã Puro (pai da Historia)
+class TitanPuro extends Classe {
+    public $forca = 100; 
+    public $defesa = 90; 
+    public $esquiva = 20;
+    public $velocidade = 15;
+    public $inteligencia = 5;
+    public $vida = 95;
+    public $tipo = 'Titã Puro';
+    public $img = 'titan_puro';
+    public $descricao = 'Enorme e deforme, extremamente lento, mas com força bruta esmagadora e grande resistência.';
+    public $altura;
+
+    public function __construct(){
+        $this->altura = AlturaTitan::$valores['Titã Puro'];
+    }
+
+    public function ataqueEspecial(){
+        echo 'Esmagamento Brutal (100) <br>';
+        echo 'Arrastão Devastador (200) <br>';
+    }
+}
+
 ?>
